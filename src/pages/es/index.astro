@@ -1,0 +1,14 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+
+
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations("es");
+---
+
+<MainLayout title={t("site.title")} description={t("site.description")}>
+    <Header />
+
+</MainLayout>

@@ -1,0 +1,17 @@
+---
+import {useTranslations} from '../i18n';
+
+const lang= (Astro.currentLocale ?? "es") as "es" | "en" ;
+const t = useTranslations (lang);
+
+---
+<header >
+    <div>
+        <p>{t("site.title")}</p>
+    </div>
+    <nav>
+        <ul>
+            <li></li>
+        </ul>
+    </nav>
+</header>

@@ -4,6 +4,20 @@ import {useTranslations} from '../i18n';
 const lang= (Astro.currentLocale ?? "es") as "es" | "en" ;
 const t = useTranslations (lang);
 
+const altLang = lang === "es" ? "en" : "es";
+
+const rutaSinLocale = Astro.url.pathname.replace(/^\/(es|en)/, "") || "/";
+const altHref = `/${altLang}${rutaSinLocale}`;
+
+const base = `/${lang}/`;
+
+const enlaces = ^[
+    {href:`${base}#inicio` , label:t("nav.home")};
+    {href:`${base}#servicios` , label:t("nav.service")};
+    {href:`${base}#contacto` , label:t("nav.contacto")};
+
+]
+
 ---
 <header class="bg-white border-b border-slat-200 py-4  ">
     <div class="w-[min(100%-2rem,1100px)] mx-auto flex flex-wrap justify-between items-center gap-x-6 gap-y-3">

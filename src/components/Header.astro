@@ -25,17 +25,20 @@ const enlaces = [
             <a href={base} class="hover:text-blue-700  focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700">
                 {t("site.title")}
             </a>
-        </p>
+        </p>        
+        <nav aria-label={t("nav.aria")} class="order-3 w-full sm:order-0 sm:w-auto">
+        </nav>
     </div>
 </header>
-<nav aria-label={t("nav.aria")} class="order-3 w-full sm:order-0 sm:w-auto">
+
     <ul class="flex-wrap gap-x-6 gap-y-2">
         {
             enlaces.map(({href, label}) => (
                     <li>
-                        <a href={href}>
-                            {label}
-                        </a>
+                        <a href={href}
+                        class="inline-block py-2 font-semibold text-gray-600 hover:text-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                        >{label}</a>
+                        
                     </li>
             ))
 

@@ -7,6 +7,6 @@
 
 @media(min-width: 640px) {
     .contenedor{
-        width: min(100% - 4rem, 110px);
+        width: min(100% - 4rem, 1100px);
     }
 }

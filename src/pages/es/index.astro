@@ -1,14 +1,18 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
-
+import Hero from "../../components/Hero.astro";
 
 import { useTranslations } from "../../i18n";
+import Hero from "../../components/hero.astro";
 
 const t = useTranslations("en");
 ---
 
 <MainLayout title={t("site.title")} description={t("site.description")}>
     <Header />
+    <main>
+        <Hero />
+    </main>
 
 </MainLayout>

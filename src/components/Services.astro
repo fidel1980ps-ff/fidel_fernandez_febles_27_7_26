@@ -1,8 +1,8 @@
 ---
 import { useTranslations, defaultLang ,type Lang, type TranslationKey } from "../i18n";
 
-const lang = (Astro.currentLocale ?? "es") as Lang;
-const t = useTranslations(lang);
+const lang =(Astro.currentLocale ?? "es")as Lang;
+const t= use Translations(lang);
 
 const servicios:{
     titulo: TranslationKey;
@@ -22,7 +22,8 @@ const claseTarejeta = "relative bg-white border border-slate-200 runded-2xl p-6 
         <h2>{t("services.title")}</h2>
         <div class="grid gap-6 md:grid-cols-3">
             {
-                servicios.map(({titulo, text, destacado}) =>(
+
+                servicios.map(({titulo,text,destacado}) =>(
                     <article class={claseTarjeta}>
                         {destacado && (
                             <span class="absolute top-4 rigth-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-bold text-white">
@@ -30,6 +31,17 @@ const claseTarejeta = "relative bg-white border border-slate-200 runded-2xl p-6 
 
                             </span>
                         )
+
+                    </article>
+                ))
+            
+            
+                        <h3>
+                        <class:list>={[
+                            "mb-2 text-lg font-bold text-blue-900"
+                            destacado && "pr-16 sm:pr-20",
+                        ]}
+                    
 
                     </article>
                 ))

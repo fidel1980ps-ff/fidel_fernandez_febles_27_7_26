@@ -2,13 +2,10 @@
 import { useTranslations, defaultLang ,type Lang, type TranslationKey } from "../i18n";
 
 const lang =(Astro.currentLocale ?? "es")as Lang;
-const yeard = new Date ().getFullYear;
+const year = new Date ().getFullYear();
 const t= useTranslations(lang);
 
-const servicios:{
-    titulo: TranslationKey;
-    texto: TranslationKey;
-    destacado?: boolean;
+
 ---
 <footer class="mt-8 border-t border-slate-200 py-8">
     <div class="contenedor text-center">

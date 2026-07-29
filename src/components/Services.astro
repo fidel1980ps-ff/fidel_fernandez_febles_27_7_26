@@ -2,16 +2,16 @@
 import { useTranslations, defaultLang ,type Lang, type TranslationKey } from "../i18n";
 
 const lang =(Astro.currentLocale ?? "es")as Lang;
-const t= use Translations(lang);
+const t= useTranslations(lang);
 
 const servicios:{
     titulo: TranslationKey;
     texto: TranslationKey;
     destacado?: boolean;
-}[]=[
-    {titulo:"services.design.title, text:services.design.text"},
-    {titulo:"services.i18n.title", text:services.i18n.text"}, 
-    {titulo:"services.optimization.title", texto: "services.optimization.text"},
+}[] = [
+    {titulo: "services.design.title", texto:"services.design.text"},
+    {titulo: "services.i18n.title", texto:"services.i18n.text"}, 
+    {titulo: "services.optimization.title", texto: "services.optimization.text"},
 ]
 
 const claseTarejeta = "relative bg-white border border-slate-200 runded-2xl p-6 shadow-[0_10px_30px_rgba (15,23,42,0.08)]";
@@ -23,30 +23,26 @@ const claseTarejeta = "relative bg-white border border-slate-200 runded-2xl p-6 
         <div class="grid gap-6 md:grid-cols-3">
             {
 
-                servicios.map(({titulo,text,destacado}) =>(
+                servicios.map(({titulo, texto, destacado}) => (
                     <article class={claseTarjeta}>
                         {destacado && (
                             <span class="absolute top-4 rigth-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-bold text-white">
-                                {t("services.badge.badge")}
+                                {t("services.badge")}
+
 
                             </span>
-                        )
-
-                    </article>
-                ))
-            
-            
+                        )}
                         <h3>
                         <class:list>={[
                             "mb-2 text-lg font-bold text-blue-900"
                             destacado && "pr-16 sm:pr-20",
                         ]}
-                    
+                        >
+
+                            {t(titulo)}
+
+                        </h3>
+                        <p class="text-gray-600">{t(texto)}</p>
 
                     </article>
-                ))
-            }
-        </div>
-    </div>
-
-</section>
+  

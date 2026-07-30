@@ -20,15 +20,35 @@ const opciones = [
     <div class="contenedor">
         <h2 class="mb-2 text-2xl font-bold text-gray-800">{t("contact.title")}</h2>
         <p class="mb-6 text-gray-600">{t("contact.text")}</p>
-        <form action="">
-            <input type="text">
+        <form 
+        action={endpoint} 
+        method="post"
+        class="max-w-2xl rounded-2xl border border-slate-200 gb-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.08)]"
+        >
+            <input type="text" name="idioma">
             <div class="mb-4">
-                <label for=""></label>
-                <input type="text">
+                <label for="name"></label>
+                <input 
+                type="text" 
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                style={claseCampo}
+                >
             </div>
             <div class="mb-4">
-                <label for=""></label>
-                <input type="text">
+                <label for="email" class=""mb-1 block font-semibold></label>
+                <input 
+                type="text"
+                id="email"
+                name="name"
+                required
+                autocomplete="email"
+                aria-labelledby="email"
+                
+                
+                >
             </div>
             <div class="mb-4">
                 <label for=""></label>

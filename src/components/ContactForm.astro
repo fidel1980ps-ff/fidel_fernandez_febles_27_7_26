@@ -4,7 +4,8 @@ import { useTranslations, defaultLang, type Lang } from "../i18n";
 const lang = (Astro.currentLocale ?? "es") as Lang;
 const t = useTranslations(lang);
 
-const claseCampo = "w-full rounded-lg border-slate-200 p-3 focus:border-blue-700 focus:outline-2 focus:outline-offset-0 focus:outline-blue-700";
+const claseCampo = "w-full rounded-lg border border-slate-200 p-3 focus:border-blue-700 focus:outline-2 focus:outline-offset-0 focus:outline-blue-700";
+
 const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID;
 const endpoint = formspreeId ? `https://formspree.io/f/${formspreeId}` : "";
 
@@ -21,43 +22,70 @@ const opciones = [
         <h2 class="mb-2 text-2xl font-bold text-gray-800">{t("contact.title")}</h2>
         <p class="mb-6 text-gray-600">{t("contact.text")}</p>
         <form 
-        action={endpoint} 
+        action={endpoint}
         method="post"
         class="max-w-2xl rounded-2xl border border-slate-200 gb-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.08)]"
         >
-            <input type="text" name="idioma">
+            <input type="hidden" name="lang" value={lang}>
             <div class="mb-4">
-                <label for="name"></label>
+                <label for="name" class="mb-1 block font-semibold">{t("form.name")}</label>
                 <input 
                 type="text" 
                 id="name"
                 name="name"
                 required
                 autocomplete="name"
-                style={claseCampo}
+                class={claseCampo}
                 >
             </div>
             <div class="mb-4">
-                <label for="email" class=""mb-1 block font-semibold></label>
+                <label for="email" class="mb-1 block font-semibold">{t("form.email")}</label>
                 <input 
-                type="text"
+                type="text" 
                 id="email"
                 name="name"
                 required
                 autocomplete="email"
-                aria-labelledby="email"
-                
-                
+                aria-labelledby ="email-help"
+                class={claseCampo}
                 >
             </div>
             <div class="mb-4">
-                <label for=""></label>
-                <input type="text">
+                <label for="company" class="mb-1 block font-semibold"></label>
+                <input 
+                type="text"
+                id="company"
+                name="company"
+                required
+                autocomplete="organization"
+                class={claseCampo}
+                >
             </div>
             <div class="mb-4">
-                <label for=""></label>
-                <input type="text">
+                <label for="services" class="mb-1 block font-semibold">{t("form.service")}</label>
+                <select id="services" name="services" required class={claseCampo}>
+                    <option value="" disabled selected> 
+                        {t("form.service.placeholder")}
+                    </option>
+                    {
+                        opciones.map(({value, label}) => (
+                            <option value={value}>{label}</option>
+                        ))
+                    }
+                </select>
             </div>
+
+            <div class="mb-4">
+                <label for="message" class="mb-1 block font-semibold">{t("form.message")}</label>
+                <textarea id="message" name="message" rows="5" required class={claseCampo}></textarea>
+            </div>
+
+            <button
+            type="submit"
+            class="rounded-lg bg-orange-500 px-5 p-3 font-bold text-white transition hover:bg-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+            >
+                    {t("form.submit")}
+            </button>
         </form>
     </div>
 </section>

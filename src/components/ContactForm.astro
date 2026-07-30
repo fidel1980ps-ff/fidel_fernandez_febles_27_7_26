@@ -1,0 +1,41 @@
+---
+import { useTranslations, defaultLang, type Lang } from "../i18n";
+
+const lang = (Astro.currentLocale ?? "es") as Lang;
+const t = useTranslations(lang);
+
+const claseCampo = "w-full rounded-lg border-slate-200 p-3 focus:border-blue-700 focus:outline-2 focus:outline-offset-0 focus:outline-blue-700";
+
+const opciones = [
+    {value: "design", label: t("form.service.design")},
+    {value: "i18n", label: t("form.service.i18n")},
+    {value: "optimization", label: t("form.service.optimization")},
+    {value: "other", label: t("form.service.other")},
+]
+---
+
+<section id="contacto" class="py-10 md:py-16">
+    <div class="contenedor">
+        <h2 class="mb-2 text-2xl font-bold text-gray-800">{t("contact.title")}</h2>
+        <p class="mb-6 text-gray-600">{t("contact.text")}</p>
+        <form action="">
+            <input type="text">
+            <div class="mb-4">
+                <label for=""></label>
+                <input type="text">
+            </div>
+            <div class="mb-4">
+                <label for=""></label>
+                <input type="text">
+            </div>
+            <div class="mb-4">
+                <label for=""></label>
+                <input type="text">
+            </div>
+            <div class="mb-4">
+                <label for=""></label>
+                <input type="text">
+            </div>
+        </form>
+    </div>
+</section>
